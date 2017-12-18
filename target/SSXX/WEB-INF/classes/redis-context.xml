@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="${jedis.pool.maxIdle}"/>
+        <property name="maxTotal" value="${jedis.pool.maxTotal}"/>
+        <property name="maxWaitMillis" value="${jedis.pool.maxWaitMillis}"/>
+        <property name="testOnBorrow" value="${jedis.pool.testOnBorrow}"/>
+        <property name="testOnReturn" value="${jedis.pool.testOnReturn}"/>
+    </bean>
+
+
+    <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:host-name="${jedis.host}"
+          p:port="${jedis.port}"
+          p:password="${jedis.password}"
+          p:pool-config-ref="poolConfig"/>
+
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>
+        <property name="valueSerializer">
+            <bean class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer"/>
+        </property>
+        <property name="defaultSerializer">
+            <bean class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer"/>
+        </property>
+        <property name="enableTransactionSupport" value="true"/>
+    </bean>
+
+
+    <bean id="jedisConfig" class="cn.likegirl.untils.JedisConfig">
+        <property name="host" value="${jedis.host}"/>
+        <property name="password" value="${jedis.password}"/>
+        <property name="expire" value="${jedis.expire}"/>
+    </bean>
+
+    <bean id="jedisUtils" class="cn.likegirl.untils.JedisUtils">
+        <property name="jedisConfig" ref="jedisConfig"/>
+        <property name="redisTemplate" ref="redisTemplate"/>
+    </bean>
+</beans>
