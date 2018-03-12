@@ -41,4 +41,5 @@ public class AnnotationController {
         subject.login(token);
         return "list";
     }
+
 }

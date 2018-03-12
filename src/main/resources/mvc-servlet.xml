@@ -10,10 +10,8 @@
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
-    <aop:config proxy-target-class="true"></aop:config>
-    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
-        <property name="securityManager" ref="securityManager"/>
-    </bean>
+    <!--<aop:config proxy-target-class="true"></aop:config>-->
+
 
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler />
