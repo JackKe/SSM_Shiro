@@ -7,7 +7,7 @@
 <body>
 
 <div class="error">${error}</div>
-<form action="user/login" method="post">
+<form action="login" method="post">
     用户名：<input type="text" name="username"><br/>
     密码：<input type="password" name="password"><br/>
     <input type="submit" value="登录">
@@ -15,7 +15,7 @@
 
 <a href="${pageContext.request.contextPath}/user/hello1">点击</a>
 
-<a href="${pageContext.request.contextPath}/userApp/list">点击</a>
+<a href="${pageContext.request.contextPath}/user/list">点击</a>
 
 </body>
 </html>

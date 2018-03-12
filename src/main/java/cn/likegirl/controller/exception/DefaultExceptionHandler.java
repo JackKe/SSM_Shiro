@@ -22,7 +22,6 @@ public class DefaultExceptionHandler {
      * 后续根据不同的需求定制即可
      */
     @ExceptionHandler({UnauthorizedException.class})
-    //@ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ModelAndView processUnauthenticatedException(NativeWebRequest request, UnauthorizedException e) {
         ModelAndView mv = new ModelAndView();
         mv.addObject("exception", e);
@@ -32,7 +31,6 @@ public class DefaultExceptionHandler {
 
 
     @ExceptionHandler({LockedAccountException.class})
-    //@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     public Map<String,Object> lockedAccountException(NativeWebRequest request, LockedAccountException e) {
         Map<String,Object> resultMap = new HashMap<>();

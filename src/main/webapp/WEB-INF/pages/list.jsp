@@ -13,11 +13,11 @@
 <br>
 List Page<a href="/logout">退出</a>
 <br>
-User<a href="/user/hello1">User Page</a>
+User<a href="/user/hello2">User Page</a>
 <br>
 Commonality<a href="/user/commonality">Commonality Page</a>
 <br>
-Admin<a href="/user/hello2">Admin Page</a>
+Admin<a href="/user/hello1">Admin Page</a>
 <br>
 </body>
 </html>

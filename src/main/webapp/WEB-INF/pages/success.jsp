@@ -8,5 +8,9 @@
      <shiro:hasAnyRoles name="admin">
          <shiro:principal/>拥有角色admin
      </shiro:hasAnyRoles>
+
+     <shiro:hasAnyRoles name="user">
+         <shiro:principal/>拥有角色user
+     </shiro:hasAnyRoles>
 </body>
 </html>

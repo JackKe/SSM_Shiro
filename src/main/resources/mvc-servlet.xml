@@ -10,7 +10,7 @@
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
-    <!--<aop:config proxy-target-class="true"></aop:config>-->
+    <aop:config proxy-target-class="true" />
 
 
     <mvc:annotation-driven/>

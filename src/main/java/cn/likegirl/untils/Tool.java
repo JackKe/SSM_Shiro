@@ -1,6 +1,6 @@
 package cn.likegirl.untils;
 
-import org.apache.commons.lang3.StringUtils;
+/*import org.apache.commons.lang3.StringUtils;
 import org.apache.http.NameValuePair;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -33,11 +33,11 @@ import java.io.*;
 import java.lang.reflect.Method;
 import java.net.URLDecoder;
 import java.util.*;
-import java.util.Map.Entry;
+import java.util.Map.Entry;*/
 
 public class Tool {
 
-    private static final Logger logger = LoggerFactory.getLogger(Tool.class);
+   /* private static final Logger logger = LoggerFactory.getLogger(Tool.class);
 
     private static String inputCharset = "utf-8";
     private static PoolingHttpClientConnectionManager cm = null;
@@ -59,18 +59,18 @@ public class Tool {
         Tool.httpclient = httpclient;
     }
 
-    /**
+    *//**
      *  初始化httpclient代码
-     */
+     *//*
     public static void initHttpClient() {
         cm = new PoolingHttpClientConnectionManager();
         cm.setMaxTotal(100);//开100个链接
         httpclient = HttpClients.custom().setConnectionManager(cm).build();
     }
 
-    /**
+    *//**
      * 销毁httpclient代码
-     */
+     *//*
     public static void cleanHttpClient() {
         try {
             if (httpclient != null) {
@@ -87,11 +87,11 @@ public class Tool {
         }
     }
 
-    /**
+    *//**
      * 将Map<String, Object>转换成Map<String, String>
      * @param properties 集合
      * @return
-     */
+     *//*
     public static Map getParameterMap(Map properties) {// 返回值使用泛型时应该是Map<String,String[]>形式
         // 返回值Map
         Map returnMap = new HashMap();
@@ -120,9 +120,9 @@ public class Tool {
         return returnMap;
     }
 
-    /**
+    *//**
      * Bean --> Map 1: 利用Introspector和PropertyDescriptor 将Bean --> Map
-     */
+     *//*
     public static Map<String, String> transBean2Map(Object obj) {
 
         if (obj == null) {
@@ -151,12 +151,12 @@ public class Tool {
         return map;
     }
 
-    /**
+    *//**
      * 把数组所有元素排序，并按照“参数=参数值”的模式用“&”字符拼接成字符串
      *
      * @param params 需要排序并参与字符拼接的参数组
      * @return 拼接后字符串
-     */
+     *//*
     public static String createLinkString(Map<String, String> params, String sign) {
 
         List<String> keys = new ArrayList<String>(params.keySet());
@@ -179,9 +179,9 @@ public class Tool {
         return prestr.toString();
     }
 
-    /**
+    *//**
      * 分转元
-     */
+     *//*
     public static String centToDollar(Long cent) {
         String resStr = String.valueOf(cent);
         if (resStr.length() < 3) {
@@ -203,10 +203,10 @@ public class Tool {
         return resStr;
     }
 
-    /**
+    *//**
      * @param map
      * @return 实现对map按照key排序 注：支付宝用到了
-     */
+     *//*
     public static Map<String, String> getSortedHashtableByKey(Map<String, String> map) {
         Map<String, String> treeMap1 = new TreeMap<String, String>();
         Iterator it = map.entrySet().iterator();
@@ -223,11 +223,11 @@ public class Tool {
         return treeMap1;
     }
 
-    /**
+    *//**
      * 除去数组中的空值和签名参数
      * @param sArray 签名参数组
      * @return 去掉空值与签名参数后的新签名参数组 注：支付宝用到了
-     */
+     *//*
     public static Map<String, String> paraFilter(Map<String, String> sArray) {
 
         Map<String, String> result = new HashMap<String, String>();
@@ -290,12 +290,12 @@ public class Tool {
         return xmlText;
     }
 
-    /**
+    *//**
      * MAP类型数组转换成NameValuePair类型
      * @param properties  MAP类型数组
      * @return NameValuePair类型数组
      * @throws UnsupportedEncodingException
-     */
+     *//*
     public static List<NameValuePair> generatNameValuePair(Map<String, String> properties) throws UnsupportedEncodingException {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         for (Entry<String, String> entry : properties.entrySet()) {
@@ -306,12 +306,12 @@ public class Tool {
         return params;
     }
 
-    /**
+    *//**
      * 将字符串转成map (str1=1&str2=2)
      * @param str 字符串
      * @param inputCharset 字符集
      * @return
-     */
+     *//*
     public static Map<String, Object> stringConvertMap(String str, String inputCharset){
         String[] array = str.split("&");
         Map<String, Object> map = new HashMap<String, Object>();
@@ -332,11 +332,11 @@ public class Tool {
         return map;
     }
 
-    /**
+    *//**
      * map.tostring 后转换成map类型
      * @param str
      * @return
-     */
+     *//*
     public static Map<String, String> mapStringToMap(String str){
         str = str.substring(1, str.length()-1);
         String[] strs = str.split(",");
@@ -348,13 +348,13 @@ public class Tool {
         return map;
     }
 
-    /**
+    *//**
      * bean转xml
      * @param unifiedbean
      * @param claz
      * @param isNotSetDocAttr
      * @return
-     */
+     *//*
     @SuppressWarnings("unchecked")
     public static String beanToXML(Object unifiedbean, @SuppressWarnings("rawtypes") Class claz, Boolean isNotSetDocAttr) {
         String xml = null;
@@ -373,12 +373,12 @@ public class Tool {
         return xml;
     }
 
-    /**
+    *//**
      * xml转bean
      * @param xml
      * @param clazz
      * @return
-     */
+     *//*
     @SuppressWarnings("unchecked")
     public static Object XMLStringToBean(String xml, @SuppressWarnings("rawtypes") Class clazz) {
         try {
@@ -392,13 +392,13 @@ public class Tool {
         return null;
     }
 
-    /**
+    *//**
      * XML格式字符串转换为Map
      *
      * @param strXML XML字符串
      * @return XML数据转换后的Map
      * @throws Exception
-     */
+     *//*
 //    public static Map<String, Object> xmlToMap(String strXML) throws Exception {
 //        try {
 //            Map<String, Object> data = new HashMap<String, Object>();
@@ -428,13 +428,13 @@ public class Tool {
 //
 //    }
 
-    /**
+    *//**
      * 将Map转换为XML格式的字符串
      *
      * @param data Map类型数据
      * @return XML格式的字符串
      * @throws Exception
-     */
+     *//*
     public static String mapToXml(Map<String, String> data) throws Exception {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder= documentBuilderFactory.newDocumentBuilder();
@@ -469,13 +469,13 @@ public class Tool {
     }
 
 
-    /**
+    *//**
      * 解析XML字符串
      *
      * @param strXML
      * @return
      * @throws DocumentException
-     */
+     *//*
     public static Map<String, Object> xmlToMap(String strXML) throws Exception {
         try{
             Document document = DocumentHelper.parseText(strXML);
@@ -487,12 +487,12 @@ public class Tool {
         }
     }
 
-    /**
+    *//**
      * 解析Element
      *
      * @param root
      * @return
-     */
+     *//*
     @SuppressWarnings("unchecked")
     private static Map<String, Object> parseElement(Element root) {
         String rootName = root.getName();
@@ -542,5 +542,5 @@ public class Tool {
 
     public static String getUUID() {
         return UUID.randomUUID().toString().replaceAll("-", "");
-    }
+    }*/
 }
