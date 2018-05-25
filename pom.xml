@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>cn.likegirl</groupId>
-  <artifactId>SSXX</artifactId>
+  <artifactId>likegirl_ssm_shiro</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>SSXX Maven Webapp</name>
+  <name>LikeGirl SSM Shiro Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -285,7 +285,20 @@
       <version>${jersey-client.version}</version>
     </dependency>
   </dependencies>
+
   <build>
-    <finalName>SSXX</finalName>
+    <finalName>ssm_shiro</finalName>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.5</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
